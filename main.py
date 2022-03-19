@@ -15,22 +15,37 @@ def solution():
 
     # determining the class of the ip
     ipclass = ''
+    desgnation = ''
     if 127 >= int_ip[0] >=1:
-        ipclass = 'Class A'
+        ipclass = 'A'
+        if int_ip[0] == 10 and 255 >= int_ip[1] >= 0:
+            desgnation = 'Private'
+        else:
+            desgnation = 'Public'
+
     elif 191 >= int_ip[0] >=128:
-        ipclass = 'Class B'
+        ipclass = 'B'
+        if int_ip[0] == 172 and 31 >= int_ip[1] >= 16:
+            desgnation = 'Private'
+        else:
+            desgnation = 'Public'
+
     elif 223 >= int_ip[0] >=192:
-        ipclass = 'Class C'
+        ipclass = 'C'
+        if int_ip[0] == 192 and int_ip[1] == 168:
+            desgnation = 'Private'
+        else:
+            desgnation = 'Public'
+
     elif 239 >= int_ip[0] >=224:
-        ipclass = 'Class D'
+        ipclass = 'D'
     elif 255 >= int_ip[0] >=240:
-        ipclass = 'Class E'
+        ipclass = 'E'
 
+    if int_ip[0] == 127 and 255 >= int_ip[3] >= 1:
+            desgnation = 'Special'
 
-
-
-
-
+    print('Class: {}, Desgnation: {}'.format(ipclass,desgnation))
 
 
 if __name__ == '__main__':
