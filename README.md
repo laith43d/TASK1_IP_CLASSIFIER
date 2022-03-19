@@ -1,4 +1,4 @@
-GIZ Task 1 - IP address classifier
+ Task 1 - IP address classifier
 
 Task resolution process:
 
