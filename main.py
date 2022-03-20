@@ -77,30 +77,33 @@ def solution():
             if (ipl[0] == 10):
                 if (ipl[1] < 255):
                     print('Designation: Private')
-                else:
-                    print('Designation: Public')
             elif (ipl[0] == 127):
                 print('Designation: Special')
+            else:
+                print('Designation: Public')
 
-        if (ipclass == 'B'):
+        elif(ipclass == 'B'):
             if (ipl[0] == 172):
                 if (ipl[1] < 32):
                     print('Designation: Private')
-                else:
-                    print('Designation: Public')
+            else:
+                print('Designation: Public')
 
-        if (ipclass == 'C'):
+        elif (ipclass == 'C'):
             if (ipl[0] == 192):
                 if (ipl[1] == 168):
                     print('Designation: Private')
-                else:
-                    print('Designation: Public')
+            else:
+                print('Designation: Public')
 
-        if (ipclass == 'D'):
+        elif (ipclass == 'D'):
             print('Designation: Multicast')
 
-        if (ipclass == 'E'):
+        elif (ipclass == 'E'):
             print('Designation: Search')
+
+        else:
+            print('Designation: Public')
     except:
         print('Error: Invalid IP address')
 
