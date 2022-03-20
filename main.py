@@ -79,6 +79,8 @@ def solution():
                     print('Designation: Private')
                 else:
                     print('Designation: Public')
+            elif (ipl[0] == 127):
+                print('Designation: Special')
 
         if (ipclass == 'B'):
             if (ipl[0] == 172):
