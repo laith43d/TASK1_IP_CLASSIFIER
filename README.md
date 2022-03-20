@@ -33,4 +33,4 @@ Output: Class: A, Designation: Special
 
 python main.py 192.168.1.1/24
 
-Output: Class: C, Designation: Private
+Output: Class: C, Designation: Private, edit
