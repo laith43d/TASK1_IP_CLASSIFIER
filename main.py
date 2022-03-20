@@ -22,8 +22,6 @@ def Class_C(args):
 def Class_D(args):
     if 224 <= args[0] <= 239 and 0 <= args[1] <= 255 and 0 <= args[2] <= 255 and 0 <= args[3] <= 255:
         print("class D , designation: public")
-    else:
-        print("class D , designation: Special")
 def Class_E(args):
     if 240 <= args[0] <= 255 and 0 <= args[1] <= 255 and 0 <= args[2] <= 255 and 0 <= args[3] <= 255:
         print("class E , designation: public")
