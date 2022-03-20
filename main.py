@@ -5,6 +5,7 @@ def Class_A(args):
         print("class A , designation: Private")
     else:
         print("class A , designation: Special")
+
 def Class_B(args):
     if 128 <= args[0] <= 191 and 0 <= args[1] <= 255 and args[2] == 0 and args[3] == 0:
         print("class B , designation: public")
@@ -12,6 +13,7 @@ def Class_B(args):
         print("class B , designation: Private")
     else:
         print("class B , designation: Special")
+
 def Class_C(args):
     if 192 <= args[0] <= 223 and 0 <= args[1] <= 255 and 0 <= args[2] <= 255 and args[3] == 0:
         print("class C , designation: public")
@@ -19,12 +21,14 @@ def Class_C(args):
         print("class C , designation: Private")
     else:
         print("class C , designation: Special")
+
 def Class_D(args):
     if 224 <= args[0] <= 239 and 0 <= args[1] <= 255 and 0 <= args[2] <= 255 and 0 <= args[3] <= 255:
         print("class D , designation: public")
 def Class_E(args):
     if 240 <= args[0] <= 255 and 0 <= args[1] <= 255 and 0 <= args[2] <= 255 and 0 <= args[3] <= 255:
         print("class E , designation: public")
+        
 def solution():
     x = input('Enter your IP Address and / Subnet Mask: ')
     a=x.rsplit('.')
@@ -40,6 +44,5 @@ def solution():
         Class_D(ip)
     elif 240 <= ip[0] <= 255:
         Class_E(ip)
-
 if __name__ == '__main__':
     solution()
