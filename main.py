@@ -42,7 +42,7 @@ def class_e(lip):
 def special(lip):
 
     if lip[0] == 127 and (lip[3] in range(1, 256)):
-        print("special ip")
+        print("class A, special ip")
 
 
 def solution():
