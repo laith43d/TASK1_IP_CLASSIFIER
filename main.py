@@ -35,7 +35,7 @@ def class_d(lip):
 def class_e(lip):
 
     # range: 240 to 255
-    if (lip[0] in range(240, 256)) and lip[1] <= 255 and lip[2] <= 225 and lip[3] <= 225:
+    if lip[0] in range(240, 256):
         print("class E")
 
 
