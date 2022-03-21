@@ -1,6 +1,6 @@
 def solution():
 
-    ipa = input('\nPlease give an IP address: ')
+    ipa = input('\nPlease write an IP address: ')
 
     # split the ip mask from input
     mask = ipa.split('/')
@@ -13,7 +13,7 @@ def solution():
     for i in range(0, len(int_ip)):
         int_ip[i] = int(int_ip[i])
 
-    # determining the class of the ip
+    # determining the class and desgtnation of the ip
     ipclass = ''
     desgnation = ''
     if 127 >= int_ip[0] >=1:
@@ -39,13 +39,16 @@ def solution():
 
     elif 239 >= int_ip[0] >=224:
         ipclass = 'D'
+        desgnation = 'Special'
     elif 255 >= int_ip[0] >=240:
         ipclass = 'E'
+        desgnation = 'Special'
 
     if int_ip[0] == 127 and 255 >= int_ip[3] >= 1:
-            desgnation = 'Special'
+        ipclass='C'
+        desgnation = 'Special'
 
-    print('Class: {}, Desgnation: {}'.format(ipclass,desgnation))
+    print('\nClass: {}, Desgnation: {} \n'.format(ipclass,desgnation))
 
 
 if __name__ == '__main__':
