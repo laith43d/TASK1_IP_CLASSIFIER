@@ -23,14 +23,11 @@ def getClass(workingIP):
         ipClass = ''
         test = workingIP[0]
   
-        if test >= 0 and test < 127:
+        if test >= 0 and test <= 127:
             ipClass = 'A'
 
         if test == 127:
-            if workingIP[1]+workingIP[2]+workingIP[3] == 0:
-                ipClass = 'A'
-            else: 
-                ipClass = 'C'
+            ipClass = 'C'
 
         elif test > 127 and test <= 191:
             ipClass = 'B'
@@ -61,13 +58,19 @@ def getDesignation(workingIP):
                 ipDesignation = 'Internet Private Address'
 
             elif workingIP[0] == 127:
-                ipDesignation = 'Local Host Address'
+                if workingIP[1] + workingIP[2] + workingIP[3] == 0:
+                    ipDesignation = 'Local Host Address'
+                else:
+                      ipDesignation = 'Internet Special IP Addresses'
             else:
                 ipDesignation = 'Internet Public Address'
+
 #class B
         elif ipClass == 'B':
+            if workingIP[0] == 169 and workingIP[1] == 254:
+                ipDesignation = 'Private APIPA Range'
             if workingIP[0] == 172 and workingIP[1] >= 16 and workingIP[1] <= 31:
-                ipDesignation = 'Internet Private Address'
+                ipDesignation = 'Internet Private Address'            
             else:
                 ipDesignation = 'Internet Public Address'            
 
@@ -76,9 +79,6 @@ def getDesignation(workingIP):
             if workingIP[0] == 192 and workingIP[1] == 168:
                 ipDesignation =  'Internet Private Address'
 
-            elif workingIP[0] == 127:
-                ipDesignation = 'Internet Special IP Addresses'
-                
             else:
                 ipDesignation = 'Internet Public Address'
 

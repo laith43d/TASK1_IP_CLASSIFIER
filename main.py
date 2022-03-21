@@ -4,15 +4,10 @@ def solution():
     pass
 
 
-
-
-
-
-
 givenIP = input('\nPlease give an IP address (IP/MASK): ')
 try:
     myWorkingIP=ip.checkIP(givenIP)
-    print('Your IP     : ' +myWorkingIP[1])
+    print('Your IP     : ' + myWorkingIP[1])
     print('Class       : ' + ip.getClass(myWorkingIP[0]))
     print('Designation : ' + ip.getDesignation(myWorkingIP[0]))
 except (IndexError, ValueError):
