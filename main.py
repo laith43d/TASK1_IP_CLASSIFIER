@@ -3,7 +3,6 @@ import ip
 def solution():
     pass
 
-
 givenIP = input('\nPlease give an IP address (IP/MASK): ')
 try:
     myWorkingIP=ip.checkIP(givenIP)
@@ -16,6 +15,7 @@ except (IndexError, ValueError):
     main()
 
 if __name__ == '__main__':
+    solution()
     pass
 
 

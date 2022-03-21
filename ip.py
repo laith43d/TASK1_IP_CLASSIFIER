@@ -26,9 +26,6 @@ def getClass(workingIP):
         if test >= 0 and test <= 127:
             ipClass = 'A'
 
-        if test == 127:
-            ipClass = 'C'
-
         elif test > 127 and test <= 191:
             ipClass = 'B'
 
