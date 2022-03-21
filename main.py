@@ -1,15 +1,23 @@
-input_ip = input("Input IP Address: ").split('/')
-ip = str(input_ip[0]).split('.')
+is_valid = False
+while not is_valid:
+    input_ip = input("Input IP Address: ").split('/')
+    if len(input_ip) != 2:
+        print("Invalid Input")
+    else:
+        mask = input_ip[1]
+        mask = int(mask)
+        ip = str(input_ip[0]).split('.')
+        is_valid = True
 
 
 def is_ip_valid(ip_add):
     """ Take IP Address (as list) to check its validity and return bollen value (True if valid / False if invalid) """
-    if len(ip_add) > 4:
-        if 0 <= int(ip_add) <= 255:
-            return False
-        return False
+    if len(ip_add) <= 4:
+        if 0 <= int(ip_add[0]) <= 255 and 0 <= int(ip_add[1]) <= 255:
+            if 0 <= int(ip_add[2]) <= 255 and 0 <= int(ip_add[3]) <= 255:
+                return True
     else:
-        return True
+        return False
 
 
 def class_checker(ip_address):
@@ -24,6 +32,14 @@ def class_checker(ip_address):
         return "Class D"
     elif 240 <= int(ip_address[0]) <= 255:
         return "Class E"
+
+
+def is_mask_valid(subnet_mask):
+    """ Take Subnet Mask (as int) to check its validity and return bollen value (True if valid / False if invalid) """
+    if 0 <= subnet_mask <= 32:
+        return True
+    else:
+        return False
 
 
 def privet_ip_checker(ip_address):
@@ -53,12 +69,12 @@ def special_ip_checker(ip_address):
         return "Special IP Address"
 
 
-def ip_checker(ip_address):
+def ip_checker(ip_address, subnet_mask):
     """Take IP Address (as list) and Subnet Mask (as int) and return 'Class and type of ip address' """
     special_ip = ''
     privet_ip = ''
     public_ip = ''
-    if is_ip_valid(ip_address):
+    if is_ip_valid(ip_address) and is_mask_valid(subnet_mask):
         if special_ip_checker(ip_address) == "Special IP Address":
             special_ip = special_ip_checker(ip_address)
         elif privet_ip_checker(ip_address) == "Privet IP Address":
@@ -72,7 +88,7 @@ def ip_checker(ip_address):
 
 
 def solution():
-    ip_checker(ip)
+    ip_checker(ip, mask)
 
 
 if __name__ == '__main__':
