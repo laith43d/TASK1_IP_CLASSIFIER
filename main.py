@@ -14,7 +14,7 @@ def solution(get_ip):
         elif  get_split[0] == '127.0.0.1':
             print("Designation: Speical")
         else:
-            print("Puplic")
+            print("Designation: Puplic")
     elif int(a[0]) >= 128 and int(a[0]) < 192:
         print("Class B")
         if int(a[0]) == 172 and int(a[1])>=16 and int(a[1])<=31:
