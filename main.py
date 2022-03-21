@@ -32,5 +32,5 @@ def solution(get_ip):
     elif int(a[0]) >= 240 and int(a[0]) <= 255:
         print("Class E ,Designation: speical")
 if __name__ == '__main__':
-    ip=input("Pleace Enter Ip: ")
-    solution(ip)
+    _ip=input("Pleace Enter Ip: ")
+    solution(_ip)
