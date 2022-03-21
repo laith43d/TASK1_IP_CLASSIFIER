@@ -1,3 +1,5 @@
+__author__ = 'Ali Abdulameer'
+
 def solution():
 
     ipa = input('\nPlease write an IP address: ')
