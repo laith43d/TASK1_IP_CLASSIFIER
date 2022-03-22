@@ -1,17 +1,17 @@
-def checkIP(testIpClass):
+def checkIP(testIp):
         """
-        This method calculates the class of the given IP address.
-        Returns a string 'A', 'B', 'C', 'D' or 'E'
+        This method Check given IP
         """    
         workingIP = [0, 0, 0, 0]
-        ipmask = testIpClass.split('/')
+        ipmask = testIp.split('/')
         splitIP = ipmask[0].split('.')
+        if len(splitIP) != 4: raise ValueError
 
         for index in range(len(splitIP)):
             workingIP[index] = int(splitIP[index])
             if workingIP[index] > 255: raise ValueError
             if index > 3: raise ValueError
-        return workingIP , ipmask[0]
+        return workingIP
 
 
 def getClass(workingIP):
@@ -49,6 +49,7 @@ def getDesignation(workingIP):
 
         ipDesignation = ''
         ipClass = getClass(workingIP)
+        
 #class A
         if ipClass == 'A':
             if workingIP[0] == 10:
