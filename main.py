@@ -29,7 +29,7 @@ def solution():
             print("Class: B, Designation: Public")
 
     elif ipA[0]>=192 and ipA[0]<=223:
-        if ipA[0]== 192 and ipA[1]>=168:
+        if ipA[0]== 192 and ipA[1]==168:
             print("Class: C, Designation: Private")
         else:
             print("Class: C, Designation: Public")
