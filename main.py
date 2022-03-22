@@ -36,7 +36,7 @@ def it_class_C(ip):
     check_list = []
     for i in range(192 , 224):
         check_list.append(str(i))
-    if ip[0] in check_list or class_C_spical(ip)==True:
+    if ip[0] in check_list :
         return True
     else:
         return False
