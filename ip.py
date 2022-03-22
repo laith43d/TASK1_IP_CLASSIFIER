@@ -53,45 +53,42 @@ def getDesignation(workingIP):
 #class A
         if ipClass == 'A':
             if workingIP[0] == 10:
-                ipDesignation = 'Internet Private Address'
+                ipDesignation = 'Private'
 
-            elif workingIP[0] == 127:
-                if workingIP[1] + workingIP[2] + workingIP[3] == 0:
-                    ipDesignation = 'Local Host Address'
-                else:
-                      ipDesignation = 'Internet Special IP Addresses'
+            elif workingIP[0] == 127 and workingIP[1] + workingIP[2] + workingIP[3] > 0:
+                ipDesignation = 'Special'
             else:
-                ipDesignation = 'Internet Public Address'
+                ipDesignation = 'Public'
 
 #class B
         elif ipClass == 'B':
             if workingIP[0] == 169 and workingIP[1] == 254:
-                ipDesignation = 'Private APIPA Range'
+                ipDesignation = 'Private APIPA'
             if workingIP[0] == 172 and workingIP[1] >= 16 and workingIP[1] <= 31:
-                ipDesignation = 'Internet Private Address'            
+                ipDesignation = 'Private'            
             else:
-                ipDesignation = 'Internet Public Address'            
+                ipDesignation = 'Public'            
 
 #class C
         elif ipClass == 'C':
             if workingIP[0] == 192 and workingIP[1] == 168:
-                ipDesignation =  'Internet Private Address'
+                ipDesignation =  'Private'
 
             else:
-                ipDesignation = 'Internet Public Address'
+                ipDesignation = 'Public'
 
 #class D
         elif ipClass == 'D':
  
-            ipDesignation = 'Multi-Cast'
+            ipDesignation = 'Special'
 
 #class E
         elif ipClass == 'E':
 
-            ipDesignation = Research/Reserved/Experimental
+            ipDesignation = 'Special'
 
         else:
-            ipDesignation = 'Internet Public Address'
+            ipDesignation = 'Public'
 
         return ipDesignation
 
