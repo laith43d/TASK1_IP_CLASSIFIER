@@ -1,5 +1,4 @@
 #function to check the IP if it have more than one condition in many parts of ID
-
 def seconde_check_list(start , end , ip):
     check_list = []
     for i in range(start , end ):
@@ -145,11 +144,21 @@ def class_C_private(ip):
        if the second part of IP equal 168
        and the remaining parts of IP in range(0,255)"""
 
-
+def invaild(ip):
+    check_list = []
+    for i in range(0 , 256):
+        check_list.append(str(i))
+    if ip[0:4] not in check_list:
+        return True
+    else:
+        return False 
 #main function to find the class and type of IP
 def solution(ip):
     ip_list = ip.split(".")         #split the ip where the '.' found 
-    if it_class_A(ip_list) == True:
+    if invaild(ip_list) == True:
+        print("invaild IP")
+        exit
+    elif it_class_A(ip_list) == True:
         print("class-A" , end = "  ")
         if class_A_private(ip_list) == True:
             print("private")
