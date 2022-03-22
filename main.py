@@ -1,106 +1,58 @@
 def solution():
     try:
-        def to_list(ip):
-            ip2 = []
-            temp = ''
-            for i in range(0, len(ip)):
-                if (ip[i] != '.'):
-                    temp += ip[i]
+        class ipCalcMainClass(object):
+            def __init__(self, givenIP=''):
+                self.workingIP = [0, 0, 0, 0]
+                self.workingMask = 0
+
+                self.ipmask = givenIP.split('/')
+                self.splitMask = self.ipmask[1]
+                self.splitIP = self.ipmask[0].split('.')
+
+                self.x = ''
+                # special
+                if self.splitIP[0] == '127' and (0 <= int(self.splitIP[1]) <= 255) and (
+                        0 <= int(self.splitIP[2]) <= 255) and (
+                        1 <= int(self.splitIP[3]) <= 255):
+                    self.x = 'Class A, Special'
+                # class A
+                elif self.splitIP[0] == '10' and (0 <= int(self.splitIP[1]) <= 255):
+                    self.x = 'Class A, Private'
+                elif 1 <= int(self.splitIP[0]) <= 127:
+                    self.x = 'Class A, Public'
+
+                # class B
+                elif self.splitIP[0] == '169' and self.splitIP[1] == '254' and (
+                        0 <= int(self.splitIP[2]) <= 255) and (
+                        0 <= int(self.splitIP[3]) <= 255):
+                    self.x = 'Class B, APIPA '
+                elif self.splitIP[0] == '172' and (31 >= int(self.splitIP[1]) >= 16):
+                    self.x = 'Class B, Private'
+                elif 172 <= int(self.splitIP[0]) <= 191:
+                    self.x = 'Class B, Public'
+
+                # class C
+                elif self.splitIP[0] == '192' and self.splitIP[1] == '168':
+                    self.x = 'Class C, Private'
+                elif 192 <= int(self.splitIP[0]) <= 223:
+                    self.x = 'Class C, Public'
+                # class D
+                elif 224 <= int(self.splitIP[0]) <= 239:
+                    self.x = 'Class D'
+
+                # class E
+                elif 240 <= int(self.splitIP[0]) <= 255:
+                    self.x = 'Class E'
+
                 else:
-                    ip2.append(temp)
-                    temp = ''
-            ip2.append(temp)
-            ip2 = [int(x) for x in ip2]
-            return ip2
+                    self.x = ' Unknown'
 
-        def a2s(a):
-            x = ''
-            for i in range(0, len(a)):
-                x = x + str(a[i]) + '.'
-                return x
-
-        def chk_class(x):
-            if (x in range(0, 128)):
-                return 'A'
-            elif (x in range(128, 192)):
-                return 'B'
-            elif (x in range(192, 224)):
-                return 'C'
-            elif (x in range(224, 240)):
-                return 'D'
-            else:
-                return 'E'
-
-        def find_addr(ipclass, ipl):
-            if (ipclass == 'A'):
-                net_id = a2s(ipl[:1])
-                host_id = a2s(ipl[1:])
-                start_add = str(net_id) + '0.0.0'
-                end_add = str(net_id) + '255.255.255'
-
-            elif (ipclass == 'B'):
-                net_id = a2s(ipl[0:2])
-                host_id = a2s(ipl[2:])
-                start_add = str(net_id) + '0.0'
-                end_add = str(net_id) + '255.255'
-
-            elif (ipclass == 'C'):
-                net_id = a2s(ipl[0:3])
-                host_id = a2s(ipl[3:])
-                start_add = str(net_id) + '0'
-                end_add = str(net_id) + '255'
-
-            elif(ipclass == 'D'):
-                net_id = a2s(ipl[0:4])
-                host_id = a2s(ipl[4:])
-                start_add = str(net_id)
-                end_add = str(net_id)
-
-            elif(ipclass == 'E'):
-                net_id = a2s(ipl[0:5])
-                host_id = a2s(ipl[5:])
-                start_add = str(net_id)
-                end_add = str(net_id)
-
-            print("NetID = ", net_id)
-            print("HostID = ", host_id)
-            print("StartAddress = ", start_add)
-            print("EndAddress = ", end_add)
-
-        ip = input("Enter The IP: ")
-        ipl = to_list(ip)
-        ipclass = chk_class(ipl[0])
-        find_addr(ipclass, ipl)
-        print("Class = ", ipclass)
-
-        if (ipclass == 'A'):
-            if (ipl[0] == 10):
-                if (ipl[1] < 255):
-                    print('Designation: Private')
-                else:
-                    print('Designation: Public')
-
-        if (ipclass == 'B'):
-            if (ipl[0] == 172):
-                if (ipl[1] < 32):
-                    print('Designation: Private')
-                else:
-                    print('Designation: Public')
-
-        if (ipclass == 'C'):
-            if (ipl[0] == 192):
-                if (ipl[1] == 168):
-                    print('Designation: Private')
-                else:
-                    print('Designation: Public')
-
-        if (ipclass == 'D'):
-            print('Designation: Multicast')
-
-        if (ipclass == 'E'):
-            print('Designation: Search')
+        ip = ipCalcMainClass
+        givenIP = input('\nPlease give an IP address (IP/MASK): ')
+        ipAddress = ip(givenIP).x
+        print(ipAddress)
     except:
-        print('Error: Invalid IP address')
+        print("Enter Valid IP in case x.x.x.x/x")
 
 
 if __name__ == '__main__':
