@@ -144,31 +144,12 @@ def class_C_private(ip):
     """if the first part of IP equal 192,
        if the second part of IP equal 168
        and the remaining parts of IP in range(0,255)"""
-def class_C_spical(ip):
-    check_list = []
-    for i in range(0,256):
-        check_list.append(str(i))
-    if ip[0] == '127' and seconde_check_list(1,256,ip[3]) == True:
-        if ip[1] in check_list and ip[2] in check_list :
-            return True
-    else:
-        return False
-#end of class-C types
 
 
 #main function to find the class and type of IP
 def solution(ip):
     ip_list = ip.split(".")         #split the ip where the '.' found 
-    if it_class_C(ip_list) == True:
-        print("class-C" , end="   ")
-        if class_C_private(ip_list) ==True:
-            print("private")
-        elif class_C_public(ip_list) == True:
-            print("public")
-        elif class_C_spical(ip_list) == True:
-            print("special")
-
-    elif it_class_A(ip_list) == True:
+    if it_class_A(ip_list) == True:
         print("class-A" , end = "  ")
         if class_A_private(ip_list) == True:
             print("private")
@@ -176,6 +157,7 @@ def solution(ip):
             print("public")
         else:
             print("special")
+    
     elif it_class_B(ip_list) == True:
         print("class-B" , end = "  ")
         if class_B_private(ip_list) == True:
@@ -185,6 +167,15 @@ def solution(ip):
         else:
             print("special")
     
+    elif it_class_C(ip_list) == True:
+        print("class-C" , end="   ")
+        if class_C_private(ip_list) ==True:
+            print("private")
+        elif class_C_public(ip_list) == True:
+            print("public")
+        else:
+            print("special")
+
     elif it_class_D(ip_list) == True:
         print("class-D")
     elif it_class_E(ip_list) == True:
