@@ -1,9 +1,20 @@
-from tracemalloc import stop
 
 def private(insert):
     def_list = insert.split(".")
+    if len(def_list) != 4:
+        print('please insert IP of 4 parts..')
+        return
+
+    # check length
+
+    if int(def_list[0]) > 255 or int(def_list[1]) > 255 or int(def_list[2]) > 255 or int(def_list[3].split("/",1)[0]) > 255:
+        print('wrong IP')
+        return
+
+    # check IP's    
+    
     if 0 <= int(def_list[0]) <= 126:
-        if int(def_list[0]) in (0,127):
+        if int(def_list[0]) == 0:
             print('Class: A, Designation: Special')
             return
         elif int(def_list[3].split("/",1)[0]) in (0,255):
