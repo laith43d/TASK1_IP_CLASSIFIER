@@ -35,9 +35,9 @@ def solution():
             print("Class: C, Designation: Public")
 
     elif ipA[0]>=224 and ipA[0]<=239:
-        print("Class: D, Designation: Public")
+        print("Class: D, Designation: Special")
     elif ipA[0]>=240 and ipA[0]<=255:
-        print("Class: E, Designation: Public")
+        print("Class: E, Designation: Special")
 
 if __name__ == '__main__':
     solution()
