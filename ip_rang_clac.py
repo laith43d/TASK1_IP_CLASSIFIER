@@ -1,7 +1,10 @@
 
 
+
+from logging.handlers import SysLogHandler
 from tokenize import String
-from xmlrpc.client import Boolean
+from wsgiref.simple_server import sys_version
+from xmlrpc.client import SYSTEM_ERROR, Boolean, boolean
 
 
 def find_ip_range(ip_add):
@@ -59,12 +62,8 @@ def find_desginateA(ip_address : list) -> String:
 
 
 def check_if_special(ip_address : list) -> Boolean:
-    if ip_address[0]==127:
-        if ip_address[1]==0 and ip_address[2] ==0 and  ip_address[3]==0:
-            #only 127.0.0.0 is public
-            return 'Class: A, Designation: Public'
-        else:
-            return 'Class: A, Designation: Special'
+    if ip_address[0]==127 or ip_address[0]==0:
+        return 'Class: A, Designation: Special'
 
     elif ip_address[0] >= 224 and  ip_address[0] <=239:
         return 'Class: D, Designation: Special'
@@ -74,5 +73,8 @@ def check_if_special(ip_address : list) -> Boolean:
 
     else:
         return '0'
+
+
+
 
    
