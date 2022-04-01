@@ -148,16 +148,17 @@ def invaild(ip):
     check_list = []
     for i in range(0 , 256):
         check_list.append(str(i))
-    if ip[0:4] not in check_list:
+    if (ip[0] and ip[1] and ip[2] and ip[3]) not in check_list:
         return True
     else:
         return False 
 #main function to find the class and type of IP
 def solution(ip):
-    ip_list = ip.split(".")         #split the ip where the '.' found 
+    ip_list = ip.split(".") #split the ip where the '.' found
+    print(ip_list)
     if invaild(ip_list) == True:
         print("invaild IP")
-        exit
+
     elif it_class_A(ip_list) == True:
         print("class-A" , end = "  ")
         if class_A_private(ip_list) == True:
