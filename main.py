@@ -1,10 +1,10 @@
 import re
 from sys import argv
 
-ipClass, ipDesignation = "", ""
-
 
 def solution():
+    ipClass = ""
+    ipDesignation = ""
     print(argv[1])
     input = argv[1]
     ipList = re.split("[/ .]", input)
@@ -27,7 +27,7 @@ def solution():
             ipDesignation = "Public"
             if ip[0] == 10:
                 ipDesignation = "Private"
-            if ip[0] == 127 and ip[3] >= 1:
+            else:
                 ipDesignation = "Special"
 
         elif (ip[0] >= 128 and ip[0] <= 191):
@@ -38,19 +38,20 @@ def solution():
 
         elif (ip[0] >= 192 and ip[0] <= 223):
             ipClass = "C"
-            if ip[3] == 1:
-                ipDesignation = "Special"
+
             if ip[0] == 192 and ip[1] == 168:
                 ipDesignation = "Private"
-            if ip[3] == 0:
+            elif ip[3] == 0:
                 ipDesignation = "Public"
+            else:
+                ipDesignation = "Special"
 
             if ip[0] >= 224 and ip[0] <= 239:
                 ipClass = "D"
             if ip[0] >= 240:
                 ipClass = "E"
 
-    print(f"Output: Class: {ipClass}, Designation: {ipDesignation}")
+    print("Output: Class: ", ipClass, ", Designation: ", ipDesignation)
 
 
 if __name__ == '__main__':
