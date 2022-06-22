@@ -46,10 +46,13 @@ def solution():
             else:
                 ipDesignation = "Special"
 
-            if ip[0] >= 224 and ip[0] <= 239:
-                ipClass = "D"
-            if ip[0] >= 240:
-                ipClass = "E"
+        elif ip[0] >= 224 and ip[0] <= 239:
+            ipClass = "D"
+            ipDesignation = "Special"
+
+        elif ip[0] >= 240:
+            ipClass = "E"
+            ipDesignation = "Special"
 
     print("Output: Class: ", ipClass, ", Designation: ", ipDesignation)
 
