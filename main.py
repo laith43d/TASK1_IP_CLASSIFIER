@@ -30,13 +30,13 @@ def solution():
             else:
                 ipDesignation = "Special"
 
-        elif (ip[0] >= 128 and ip[0] <= 191):
+        if (ip[0] >= 128 and ip[0] <= 191):
             ipClass = "B"
             ipDesignation = "Public"
             if ip[0] == 172 and (ip[1] >= 16 and ip[1] <= 31):
                 ipDesignation = "Private"
 
-        elif (ip[0] >= 192 and ip[0] <= 223):
+        if (ip[0] >= 192 and ip[0] <= 223):
             ipClass = "C"
 
             if ip[0] == 192 and ip[1] == 168:
@@ -46,15 +46,15 @@ def solution():
             else:
                 ipDesignation = "Special"
 
-        elif ip[0] >= 224 and ip[0] <= 239:
+        if ip[0] >= 224 and ip[0] <= 239:
             ipClass = "D"
             ipDesignation = "Special"
 
-        elif ip[0] >= 240:
+        if ip[0] >= 240:
             ipClass = "E"
             ipDesignation = "Special"
 
-    print("Output: Class: ", ipClass, ", Designation: ", ipDesignation)
+        print("Output: Class: ", ipClass, ", Designation: ", ipDesignation)
 
 
 if __name__ == '__main__':
