@@ -24,8 +24,11 @@ def solution(ip):
         print("this is 'privat' ip Class: B")
 
 
-    elif n1 or n2 or n3 or n4 <1 and n1 or n2 or n3 or n4 >255:
+    elif n2 or n3 or n4 <0 and n2 or n3 or n4 >255:
         print("The ip out of range try again!!!!!!!")
+        
+        elif n1 <1 or n1 > 255:
+             print("The ip out of range try again!!!!!!!")
 
     elif n5 !=24:
         print("chic your Subnet Mask")
