@@ -2,7 +2,6 @@ def ipSolution():
     # input ip-address
     ip = input('Enter your Ip-address and mask  IP/Mask: ')
     ip = ip.split('/')
-    mask = ip[1]
     ipAddress = ip[0].split('.')
 
     # Ip check
