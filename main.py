@@ -50,7 +50,7 @@ def solution():
         # 172.16.0.0-172.31.255.255
         if ((oct1 in range(130, 168 + 1)) or
                 (oct1 == 129) or
-                (oct1 == 169 and oct2 in range(0, 253)) or
+                (oct1 == 169 and oct2 in range(0, 253+1)) or
                 (oct1 in range(170, 171 + 1)) or
                 (oct1 == 169 and oct2 == 255) or
                 (oct1 == 172 and oct2 in range(0, 15 + 1)) or
