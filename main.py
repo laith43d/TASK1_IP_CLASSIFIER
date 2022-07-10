@@ -1,15 +1,38 @@
 #function to determine the class of an Ip address
+from ast import And
+
+
 def findClass(ip_network):
-  if(ip_network[0] >= 0 and ip_network[0] <= 127):
+  if(
+    ip_network[0] >= 0 and ip_network[0] <= 127 
+  and ip_network[1] >= 0 and ip_network[1] <= 255 
+  and ip_network[2] >= 0 and ip_network[2] <= 255
+  and ip_network[3] >= 0 and ip_network[3] <= 255
+    ):
     return "A"
    
-  elif(ip_network[0] >=128 and ip_network[0] <= 191):
+  elif(
+    ip_network[0] >= 128 and ip_network[0] <= 191 
+  and ip_network[1] >= 0 and ip_network[1] <= 255 
+  and ip_network[2] >= 0 and ip_network[2] <= 255
+  and ip_network[3] >= 0 and ip_network[3] <= 255
+    ):
     return "B"
    
-  elif(ip_network[0] >= 192 and ip_network[0] <= 223):
+  elif(
+    ip_network[0] >= 192 and ip_network[0] <= 223 
+  and ip_network[1] >= 0 and ip_network[1] <= 255 
+  and ip_network[2] >= 0 and ip_network[2] <= 255
+  and ip_network[3] >= 0 and ip_network[3] <= 255
+    ):
     return "C"
    
-  elif(ip_network[0] >= 224 and ip_network[0] <= 239):
+  elif(
+    ip_network[0] >= 224 and ip_network[0] <= 239 
+  and ip_network[1] >= 0 and ip_network[1] <= 255 
+  and ip_network[2] >= 0 and ip_network[2] <= 255
+  and ip_network[3] >= 0 and ip_network[3] <= 255
+    ):
     return "D"
    
   else:
@@ -18,17 +41,88 @@ def findClass(ip_network):
 
 
 def find_type_of_IP(ip_network):
-  if (ip_network[0] >= 0 and ip_network[0] <= 8):
+  
+  #public ip of class A
+  if (
+    ip_network[0] >= 1 and ip_network[0] <= 127 
+  and ip_network[1] == 0  
+  and ip_network[2] == 0 
+  and ip_network[3] == 0 
+      ):
     return"Public"
 
-  elif (ip_network[0] == 10):
+  #public ip of class B
+  elif(
+    ip_network[0] >= 128 and ip_network[0] <= 191 
+  and ip_network[1] >= 0 and ip_network[1] <= 255 
+  and ip_network[2] == 0 
+  and ip_network[3] == 0 
+      ):
+    return"Public"
+   
+  #public ip of class C
+  elif (
+    ip_network[0] >= 192 and ip_network[0] <= 223 
+  and ip_network[1] >= 0 and ip_network[1] <= 255 
+  and ip_network[2] >= 0 and ip_network[2] <= 255 
+      ):
+    return"Public"
+
+
+  #Public ip of class D
+  elif (
+    ip_network[0] >= 224 and ip_network[0] <= 239 
+      ):
+    return"Public"
+
+    #Public ip of class E
+  elif (
+    ip_network[0] >= 240 and ip_network[0] <= 255 
+      ):
+    return"Public"
+
+#____________________________________________________________________________
+
+
+
+  #private ip of class A
+  elif (
+    ip_network[0] == 10 
+      ):
     return"Private"
    
-  elif(ip_network[0] == 172 and ip_network[1] >= 16 and ip_network[1] <= 31):
+  #private ip of class B
+  elif (
+    ip_network[0] == 172 and ip_network[1] >= 16 and ip_network[1] <= 31 
+      ):
     return"Private"
-   
-  elif(ip_network[0] == 192 and ip_network[1] == 168):
+
+  #private ip of class C
+  elif (
+    ip_network[0] == 192 and ip_network[1] == 168 
+      ):
     return"Private"
+
+  #private ip of class D
+  elif (
+    ip_network[0] >= 224 and ip_network[0] <= 239
+      ):
+    return"Private"
+
+    #private ip of class E
+  elif (
+    ip_network[0] >= 240 and ip_network[0] <= 255
+      ):
+    return"Private"
+
+#____________________________________________________________
+
+
+#Special ip of class C
+  elif (
+    ip_network[0] == 127 and ip_network[3] >= 1 and ip_network[3] <= 255
+      ):
+    return"Special"
 
   else:
     return"Special"
