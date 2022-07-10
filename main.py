@@ -1,5 +1,5 @@
 def solution(ip):
-    first, second, third, fourth = map(int, ip.split('.'))
+    ip=ip.split("/"); first, second, third, fourth = map(int, ip[0].split('.'))
 
     if first > 255 or second > 255 or third > 255 or fourth > 255:
         print("INVALID IP ADDRESS")
@@ -36,7 +36,5 @@ def solution(ip):
 
     print("Class: {}, Designation: {}".format(classtype, designation))
 
-
 if __name__ == '__main__':
     solution(input("Enter IP ADDRESS: "))
-
