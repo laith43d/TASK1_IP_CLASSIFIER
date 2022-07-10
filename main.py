@@ -48,4 +48,3 @@ def Class_And_IP_Type():
 
 if __name__ == '__main__':  
     print("Class: "+Class_And_IP_Type())
-
