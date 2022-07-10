@@ -27,7 +27,7 @@ def solution():
             sys.exit()
 
         # check what class the ip belongs to.
-        if subip1 >= 0 and subip1 <= 126:
+        if subip1 >= 0 and subip1 <= 127:
             print("Class: A, ",end='')
         elif subip1 >= 128 and subip1 <= 191:
             print("Class: B, ",end='')
