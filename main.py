@@ -23,15 +23,15 @@ def solution(ip):
     special = part1 == 127 and part4 != 0
 
     # check type
-    if special:print("class A special")
-    elif privateA:print("class A Private")
-    elif privateB:print("class B Private")
-    elif privateC:print("class C Private")
-    elif publicA:print("class A Public")
-    elif publicB:print("class B Public")
-    elif publicC:print("class C Public")
-    elif publicD:print("class D Public")
-    else:print("Class E Public")
+    if special:print("Class: A, Designation: Special")
+    elif privateA:print("Class: A, Designation: Private")
+    elif privateB:print("Class: B, Designation: Private")
+    elif privateC:print("Class: C, Designation: Private")
+    elif publicA:print("Class: A, Designation: Public")
+    elif publicB:print("Class: B, Designation: Public")
+    elif publicC:print("Class: C, Designation: Public")
+    elif publicD:print("Class: D, Designation: Public")
+    else:print("Class: E, Designation: Public")
     
 if __name__ == '__main__':
     solution(input())
