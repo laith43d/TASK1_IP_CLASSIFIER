@@ -36,7 +36,7 @@ def solution():
             type = "private"
         elif oct1 == 100 and oct2 in range(64, 127 + 1):
             type = "special"
-        elif oct1 == 127 and oct4 in range(1, 255):
+        elif oct1 == 127 and oct4 in range(1, 255+1):
             type = "special"
         else:
             type = "public"
