@@ -1,6 +1,4 @@
 #function to determine the class of an Ip address
-from ast import And
-
 
 def findClass(ip_network):
   if(
