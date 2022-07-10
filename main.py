@@ -57,6 +57,6 @@ def solution(ip):
 if __name__ == '__main__':
 
     ip = input("Enter your ip adreess..... \n")
-    ip.lower()
+    print("Your IP adress is....  ",ip)
 
     solution(ip)
