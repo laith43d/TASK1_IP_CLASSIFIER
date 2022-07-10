@@ -22,7 +22,7 @@ def solution():
     else:
         netmask = 24
         # defult value
-    bin1 = bin(int(oct1))
+    bin1 = bin(oct1)
     bin1 = str(bin1[2::])
     bin1 = bin1.zfill(8)
     count = 0
