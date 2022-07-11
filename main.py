@@ -68,3 +68,4 @@ if __name__ =='__main__':
         elif classError ==False:
          print("Output: Class: "+ classType +"\nDesignation " + setType)
          
+            
