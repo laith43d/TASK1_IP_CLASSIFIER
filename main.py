@@ -2,14 +2,13 @@ import re
 import sys
 
 """ 
-Just for simplicity I have ignored some cases that cause exceptions. 
+Just for simplicity I have ignored some cases that cause exceptions.
 """
 
 
 class IPCalculator:
     ip_class: str = 'Unknown'
     ip_designation: str = 'Unknown'
-
     is_valid_id: bool = False
 
     def __init__(self, ip):
@@ -30,22 +29,16 @@ class IPCalculator:
     """
 
     def get_class(self) -> str:
-
         if 0 <= self.octets[0] <= 127:
             self.ip_class = 'A'
-
         elif 128 <= self.octets[0] <= 191:
             self.ip_class = 'B'
-
         elif 192 <= self.octets[0] <= 223:
             self.ip_class = 'C'
-
         elif 224 <= self.octets[0] <= 239:
             self.ip_class = 'D'
-
         else:
             self.ip_class = 'E'
-
         return self.ip_class
 
     """
@@ -56,21 +49,16 @@ class IPCalculator:
 
     def get_designation(self) -> str:
         octets = self.octets
-
         if octets[0] == 127:
             self.ip_designation = 'Special'
-
         elif octets[0] == 10 and 0 <= octets[1] <= 255:
             self.ip_designation = 'Private'
-
         elif octets[0] == 172 and 16 <= octets[1] <= 31:
             self.ip_designation = 'Private'
-
         elif octets[0] == 192 and octets[1] == 168:
             self.ip_designation = 'Private'
         else:
             self.ip_designation = 'Public'
-
         return self.ip_designation
 
     """
