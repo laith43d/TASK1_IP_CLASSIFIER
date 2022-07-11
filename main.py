@@ -5,12 +5,14 @@ def solution():
     ip_split = ip[0].split('.')
     first_part = ip_split[0]
     second_part = ip_split[1]
+    third_part = ip_split[2]
+    fourth_part = ip_split[3]
 
     if str(0) <= first_part < str(128):
         print("Class :A ")
         if first_part == str(10) and str(0) <= second_part < str(256):
             print("Designation: private")
-        elif first_part == str(127):
+        elif first_part == str(127) and fourth_part != str(0):
             print("Designation :Special")
         else:
             print("Designation: Public")
@@ -32,10 +34,10 @@ def solution():
             print("Designation: public")
 
     if str(224) <= first_part < str(240):
-        print("Class :D ")
+        print("Class :D , Designation: SPECIAL")
 
     if str(240) <= first_part < str(256):
-        print("Class :E ")
+        print("Class :E , Designation: SPECIAL")
 
 
 if __name__ == '__main__':
