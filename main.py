@@ -67,5 +67,4 @@ if __name__ =='__main__':
             print("Invalid IP address")
         elif classError ==False:
          print("Output: Class: "+ classType +"\nDesignation " + setType)
-         
-            
+        
