@@ -1,6 +1,7 @@
 def solution():
     pass
 
+
 def solution(ip):
     ip1=ip.split("/")
     ip_parts=ip1[0].split(".")
