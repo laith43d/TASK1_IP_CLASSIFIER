@@ -1,30 +1,31 @@
 def solution(ip):
     
     ip_split=ip.split('.')
-
-
-    if int(ip_split[0])>=1 and int(ip_split[0])<=127:
-        print("class A")
-        if int(ip_split[0])==10:
-            print("private")
+    out1="Class: "
+    out2="Designation: "
+    fp=int(ip_split[0])
+    if fp>=1 and fp<=127:
+        print(out1+"A")
+        if fp==10:
+            print(out2+"private")
         else:
-            print("public")
-    elif int(ip_split[0])>=128 and int(ip_split[0])<=191:
-        print("class B")
-        if int(ip_split[0])==172:
-            print("private")
+            print(out2+"public")
+    elif fp>=128 and fp<=191:
+        print(out1+"B")
+        if fp==172:
+            print(out2+"private")
         else:
-            print("public")
-    elif int(ip_split[0])>=192 and int(ip_split[0])<=223:
-        print("class C")
-        if int(ip_split[0])==192:
-            print("private")
+            print(out2+"public")
+    elif fp>=192 and fp<=223:
+        print(out1+"C")
+        if fp==192:
+            print(out2+"private")
         else:
-            print("public")
-    elif int(ip_split[0])>=224 and int(ip_split[0])<=239:
-        print("class D")
-    elif int(ip_split[0])>=240 and int(ip_split[0])<=255:
-        print("class E")
+            print(out2+"public")
+    elif fp>=224 and fp<=239:
+        print(out1+"D")
+    elif fp>=240 and fp<=255:
+        print(out1+"E")
 
 if __name__ == '__main__':
     ip = input("Enter Your Ip Address: ")
