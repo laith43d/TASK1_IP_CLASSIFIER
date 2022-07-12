@@ -1,7 +1,8 @@
 
 def solution():
     pass
-#IP input
+    
+ #IP input
     IP = str(input('Enter IP:'))
 
 #Listing and Splting the IP
@@ -36,7 +37,7 @@ def solution():
     elif IP_inx_1 in range(128,192) and IP_inx_2 in range(0,256) and IP_inx_3 == 0 and IP_inx_4 == 0:
         print('IP class: B and Designation: Public')
 
-    elif IP_inx_1 == 127 and IP_inx_2 in range(16,32) and IP_inx_3 in range(0,256) and IP_inx_4 in range(0,256):
+    elif IP_inx_1 == 172 and IP_inx_2 in range(16,32) and IP_inx_3 in range(0,256) and IP_inx_4 in range(0,256):
         print('IP class: B and Designation: Privet')
 
     elif IP_inx_1 in range(192,224) and IP_inx_2 in range(0,256) and IP_inx_3 in range(0,256) and IP_inx_4 == 0:
@@ -54,8 +55,8 @@ def solution():
     elif IP_inx_1 == 127 and IP_inx_2 in range(0,256) and IP_inx_3 in range(0,256) and IP_inx_4 in range(1,256):
         print('IP class : A and Designation: Special')
     else:
-        print('You entered a wroing IP')
-
+         print('You entered an invaled IP, Try again'),solution()
+        
 
 
 if __name__ == '__main__':
