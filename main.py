@@ -1,7 +1,7 @@
 def solution(ip):
     ip=ip.split("/"); first, second, third, fourth = map(int, ip[0].split('.'))
 
-    if 0>first > 255 or second > 255 or third > 255 or fourth > 255:
+    if first > 255 or second > 255 or third > 255 or fourth > 255:
         print("INVALID IP ADDRESS")
         exit()
 
