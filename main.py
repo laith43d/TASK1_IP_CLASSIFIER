@@ -1,40 +1,29 @@
 def solution(ip):
-    newip = ip.split('/')
-    newip.pop()
-    new = ''
-    for i in newip:
-        if i != '.':
-            new+=i
-        sk = new.split('.')
-    
-    A = sk[0]
-    B = sk[1]
-    C = sk[2]
-    D = sk[3]
-    print(" YOUR IP ADDRESS IS ->", ip)
+    sk = ip.split('.')
+    print(" YOUR IP-> ", ip)
     #CLASS A
-    if int(A) == 10 and int(B) in range(0,256) and int(C) in range(0,256) and int(D) in range(0,256):
-        print(" CLASS A, Designation: PRIVATE")
-    elif int(A) in range(1,128) and int(B) in range(0,1) and int(C) in range(0,1) and int(D) in range(0,1):
-        print(" CLASS A,  Designation: PUBLIC")
-    elif int(A) == 127 and int(B) in range(0,256) and int(C) in range(0,256) and int(D) in range(0,256):
-        print(" CLASS A, Designation: SPECIAL")
+    if int(sk[0]) == 127 and int(sk[3]) in range(1,256):
+        return " CLASS A, Designation: SPECIAL"
+    elif int(sk[0]) == 10:
+        return " CLASS A, Designation: PRIVATE"
+    elif int(sk[0]) in range(1,128):
+        return " CLASS A,  Designation: PUBLIC"
     #CLASS B
-    if int(A) == 172 and int(B) in range(16,32) and int(C) in range(0,256) and int(D) in range(0,256):
-        print(" CLASS B, Designation: PRIVATE")
-    elif int(A) in range(128,192) and int(B) in range(0,256) and int(C) in range(0,1) and int(D) in range(0,1):
-        print(" CLASS B, Designation: PUBLIC")
+    if int(sk[0]) == 172:
+        return " CLASS B, Designation: PRIVATE"
+    elif int(sk[0]) in range(128,192):
+        return " CLASS B, Designation: PUBLIC"
     #CLASS C
-    if int(A) == 192 and int(B) in range(168,169) and int(C) in range(0,256) and int(D) in range(0,256):
-        print(" CLASS C, Designation: PRIVATE")
-    elif int(A) in range(192,224) and int(B) in range(0,256) and int(C) in range(0,256) and int(D) in range(0,1):
-        print(" CLASS C, Designation: PUBLIC")
+    if int(sk[0]) == 192 and int(sk[1]) == 168:
+        return " CLASS C, Designation: PRIVATE"
+    elif int(sk[0]) in range(192,224):
+        return " CLASS C, Designation: PUBLIC"
     #CLASS D
-    if int(A) in range(224,240) and int(B) in range(0,256) and int(C) in range(0,256) and int(D) in range(0,256):
-        print(" CLASS D, Designation: SPECIAL")
+    if int(sk[0]) in range(224,240):
+        return " CLASS D, Designation: SPECIAL"
     #CLASS E
-    if int(A) in range(240,256) and int(B) in range(0,256) and int(C) in range(0,256) and int(D) in range(0,256):
-        print(" CLASS E, Designation: SPECIAL")
-
+    if int(sk[0]) in range(240,256):
+        return " CLASS E, Designation: SPECIAL"
+    
 if __name__ == '__main__':
-    solution('192.168.1.1/24')
+    print(solution('127.0.0.0'))
