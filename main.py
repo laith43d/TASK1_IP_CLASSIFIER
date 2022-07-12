@@ -1,44 +1,40 @@
-def solution():
-    ip = input(str("input the IP address "))
-    print("the IP: "+ip)
+def solution(ip):
+    print("your IP Address : "+ip)
     ip = ip.split("/")
     ip_split = ip[0].split('.')
-    first_part = ip_split[0]
-    second_part = ip_split[1]
-    third_part = ip_split[2]
-    fourth_part = ip_split[3]
+    first_part = int(ip_split[0])
+    second_part = int(ip_split[1])
 
-    if str(0) <= first_part < str(128):
+    if first_part in range(0, 128):
         print("Class :A ")
-        if first_part == str(10) and str(0) <= second_part < str(256):
+        if first_part == 10 and second_part in range(0, 256):
             print("Designation: private")
-        elif first_part == str(127) and fourth_part != str(0):
+        elif first_part == 127:
             print("Designation :Special")
         else:
             print("Designation: Public")
 
-    if str(128) <= first_part < str(192):
+    if first_part in range(128, 192):
         print("Class :B ")
-        if first_part == str(172) and str(16) <= second_part < str(32):
+        if first_part == 172 and second_part in range(16, 32):
             print("Designation: private")
         else:
             print("Designation: public")
 
-    if str(192) <= first_part < str(224) :
+    if first_part in range(192, 224) :
         print("Class :C ")
-        if first_part == str(192) and second_part == str(168) and str(16) <= second_part < str(32):
+        if first_part == 192 and second_part == 168 and second_part in range(0, 256):
             print("Designation: private")
-        elif first_part == str(127):
-            print("Designation: special")
         else:
             print("Designation: public")
 
-    if str(224) <= first_part < str(240):
+    if first_part in range(224, 240):
         print("Class :D , Designation: SPECIAL")
 
-    if str(240) <= first_part < str(256):
+    if first_part in range(240, 256):
         print("Class :E , Designation: SPECIAL")
 
 
 if __name__ == '__main__':
-    solution()
+    solution("127.0.0.1/24")
+    solution("192.168.1.1/24")
