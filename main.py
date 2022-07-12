@@ -1,7 +1,7 @@
 def solution(ip):
     ip=ip.split("/"); first, second, third, fourth = map(int, ip[0].split('.'))
 
-    if first > 255 or second > 255 or third > 255 or fourth > 255:
+    if 0>first > 255 or second > 255 or third > 255 or fourth > 255:
         print("INVALID IP ADDRESS")
         exit()
 
@@ -28,12 +28,12 @@ def solution(ip):
 
     if 224 <= first <= 239:
         classtype = 'D'
-        designation = "Public"
+        designation = "Special"
 
     if 240 <= first <= 255:
         classtype = 'E'
-        designation = "Public"
-
+        designation = "Special"
+        
     print("Class: {}, Designation: {}".format(classtype, designation))
 
 if __name__ == '__main__':
