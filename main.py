@@ -9,7 +9,7 @@ def solution(ip_address):
             print("Class: A, Designation: Public")
         elif int(ip_address[0]) == 127 and (0 <= int(ip_address[1]) <= 255) and\
                 (0 <= int(ip_address[1]) <= 255) and (1 <= int(ip_address[3].split("/")[0]) <= 255):
-            print("Class: C, Designation: Special")
+            print("Class: A, Designation: Special")
 
     elif 128 <= int(ip_address[0]) <= 191:
         if int(ip_address[0]) == 172 and (16 <= int(ip_address[1]) <= 31):
