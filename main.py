@@ -89,7 +89,7 @@ def solution():
         type = "Public"
     elif count == 4:
         Class = 'E'
-        type = "Speical"
+        type = "Public"
     else:
         Class = "undifined"
         type = "Speical"
