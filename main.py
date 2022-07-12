@@ -1,4 +1,3 @@
-
 def solution():
     pass
 
@@ -48,15 +47,15 @@ def IP_Type():
    
 
     if s1 == 10:
-        print("Private IP Address")
+        print("Designation:Private IP Address")
     elif s1 == 172 and s2 >= 16 and s2 <= 31:
-        print("Private IP Address")
+        print("Designation:Private IP Address")
     elif s1 == 192 and s2 == 168:
-        print("Private IP Address")
+        print("Designation:Private IP Address")
     elif s1 == 127 and s4 >=1 and s4<=255:
-        print("Special IP Adress")
+        print("Designation:Special IP Adress")
     else:
-        print("Public IP Address")
+        print("Designation:Public IP Address")
 
 
     return(Result)    
@@ -64,4 +63,3 @@ def IP_Type():
 
 if __name__ == '__main__':  
     print("Class: "+IP_Type())
-
