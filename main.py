@@ -52,7 +52,7 @@ def solution():
         print('IP class: E')
 
     elif IP_inx_1 == 127 and IP_inx_2 in range(0,256) and IP_inx_3 in range(0,256) and IP_inx_4 in range(1,256):
-        print('IP class : C and Designation: Special')
+        print('IP class : A and Designation: Special')
     else:
         print('You entered a wroing IP')
 
