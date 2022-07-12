@@ -35,8 +35,6 @@ def solution(ip):
     #CLASS E
     if int(A) in range(240,256) and int(B) in range(0,256) and int(C) in range(0,256) and int(D) in range(0,256):
         print(" CLASS E, Designation: SPECIAL")
-solution('192.168.1.1/24')
-
 
 if __name__ == '__main__':
-    pass
+    solution('192.168.1.1/24')
