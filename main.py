@@ -1,16 +1,16 @@
 def solution():
-    print("Please Enter an Ip adress: " , end='')
+    print("Please Enter an Ip Adress: " , end='')
     ip = input()
     ip = ip.split("/")[0].split(".")
     # ip validation
-    if len(ip) != 4 :print("ip is not correct\n");solution()
+    if len(ip) != 4 :print("ip is not correct\n".title());solution()
     try:
         part1, part2, part3, part4 = int(ip[0]), int(ip[1]), int(ip[2]),int(ip[3])
     except ValueError:
-        print("ip is not correct\n")
+        print("ip is not correct\n".title())
         solution()
     if ((part1 or part2 or part3 or part4) not in range(0,256)):
-        print("Please check if the ip is in range\n")
+        print("Please check if the ip is in range\n".title())
         solution()
     # boolean values
     publicA = part1 in range(0,128)
@@ -35,7 +35,7 @@ def solution():
     elif publicD:print("Class: D, Designation: Public")
     else:print("Class: E, Designation: Public")
     
-    print("do you want to try again [Y/N]: ".capitalize())
+    print("do you want to try again [Y/N]: ".title())
     x = input()
     if x == "y" or x == "Y":
         solution()
