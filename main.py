@@ -1,4 +1,6 @@
 def solution():
+    pass
+
     import sys
     user_input = input("Enter an ip address, press 'x' to exit: ")
     if user_input == 'x' or user_input == 'X':
@@ -55,4 +57,5 @@ def solution():
 
 
 if __name__ == '__main__':
+    pass
     solution()
