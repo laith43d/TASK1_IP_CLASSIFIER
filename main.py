@@ -23,8 +23,7 @@ def solution(ip):
         res=("Class: D, Designation: Public")
     elif p1 <=255 and p1>=240:
         res=("Class: E, Designation: Public")
-   # elif (p1 >255)or (p2 >255)  or (p1 <0)or(p2 <0) :
-      #  res="The ip out of the range"
+ 
     print(res)
 
 if __name__ == '__main__':
