@@ -1,6 +1,8 @@
+import re
+
 def solution():
     while True:
-        ip = input('Enter an IP address in the format x.x.x.x/x :\n')
+        ip = input('Enter an IP address in the format #.#.#.#/# :\n')
         if is_valid(ip):
             ip_octets = split_ip(ip)
             ip_octets = [int(i) for i in ip_octets]
@@ -8,25 +10,28 @@ def solution():
             ip_designation = find_designation(ip_octets)
             print(f'Class: {ip_class}, Designation: {ip_designation}')
             break
-
         else:
-            print('Please try again...')
+            print('Please try again...\n')
             continue
 
 
 def is_valid(str_ip):
-    ip = split_ip(str_ip)
+    pattern = re.compile("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/\d{1,2}")
+    checker = pattern.match(str_ip)
 
-    if len(ip) != 4:
-        print('The number of octets should equel four')
+    if not checker:
+        print('The IP address does not match the required format')
         return False
 
+    ip = split_ip(str_ip)
+
     for i in ip:
-        if (not i.isdigit()):
-            print('All octets should be numeric')
-            return False
-        elif (i.isdigit() and int(i) not in range(0, 256)):
+        if (int(i) not in range(0, 256)):
             print('All ocetets should be in range 0-255')
+            return False
+
+        if len(i) > len(i.lstrip('0')) and len(i) != 1:
+            print('Leading zeros in any octet are not allowed')  # 01 or 001
             return False
 
     cidr_index = str_ip.find('/')+1
@@ -56,17 +61,6 @@ def find_class(first_octete):
 
 
 def find_designation(ip_octets):
-    ''''
-    Private IP :
-        10.0.0.0 — 10.255.255.255
-        169.254.0.0 - 169.254.255.255
-        172.16.0.0 - 172.31.255.255 
-        192.168.0.0 - 192.168.255.255
-    Special IP :
-        127.0.0.1 - 127.255.255.255
-    Any range else :
-        Public IP 
-    '''
     if any ([
         ip_octets[0] == 10 ,
         ip_octets[0] == 169 and ip_octets[1] == 254 ,
@@ -75,10 +69,9 @@ def find_designation(ip_octets):
     ]):
         return 'Private'
 
-    elif all ([
-        ip_octets[0] == 127 ,
-        ip_octets[-1] in range(1, 256)
-    ]):
+    elif (
+        ip_octets[0] == 127
+    ):
         return 'Special'
 
     else:
