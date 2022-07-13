@@ -51,9 +51,7 @@ def solution():
 
     elif ip_first_part in range(240, 256):
         print('Class: E, Designation: Special')
-
-    else:
-        print('This IP Address you entered is not valid..\nPlease try again')
+        
 
 
 if __name__ == '__main__':
