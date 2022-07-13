@@ -1,7 +1,7 @@
 def solution():
     pass
 def solution(ip):
-    ip_split=ip.split('/')
+    ip=ip.split('/')
     p1,p2,p3,p4=map(int, ip[0].split('.'))
     if p1 <=127 and p1>=0 :
         res=("Class: A, Designation: Public")
