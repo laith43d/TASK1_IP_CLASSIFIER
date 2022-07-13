@@ -1,8 +1,11 @@
-def solution(ip_adress):
+def IP_identifier():
+    ip_adress = input('enter your IP adress in the format: x.x.x.x/x : ')
     c = ''
     Designation = ''
-    y = ip_adress.split('.')
+    y = ip_adress.split('/')
+    y= y[0].split('.')
     invalid = False
+    print('_______________________________')
     try:
         for i in y:
             if  isinstance(int(i),int):
@@ -36,21 +39,25 @@ def solution(ip_adress):
         else:
             invalid = True
             print('invalid ip')
+            IP_identifier()
         if not invalid:
             print('Class: {} , Designation: {}'.format(c,Designation))
+            print('_______________________________')
+            again()
     except:
             print("this is not ip adress")
-#test1
-solution('127.40.0.88')
-print('_______________________________')
-#test2
-solution('15.T.0.M')
-print('_______________________________')
-#test3
-solution('0.168.0.88')
-print('_______________________________')
-#test4
-solution('172.16.31.88')
-print('_______________________________')
-#test5
-solution('192.167.31.88')
+            print('_______________________________')
+            IP_identifier()
+
+
+def again():
+        x = input('do you want to enter another IP ? enter Y/N  : ')
+        if x == 'N' or x == 'n':
+            pass
+        elif x == 'Y' or x == 'y':
+            IP_identifier()
+        else:
+            print('invalid input please choose Y or N ')
+            again()
+
+IP_identifier()
