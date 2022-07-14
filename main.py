@@ -30,6 +30,6 @@ def solution(ip):
     pass
 
 if __name__ == '__main__':
-    
+    # taking input from user through command line for example: (python main.py 192.168.1.1/24)
     solution(sys.argv[1])
     pass 
