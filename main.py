@@ -31,7 +31,7 @@ def solution(ip):
         
     elif (240 >= part1 >= 255):
         print("Class: E, Designation: Public")   
-ip = input("inter the IP:")
+ip = '127.0.0.1/24'
 solution(ip)   
     
 if __name__ == '__main__':
