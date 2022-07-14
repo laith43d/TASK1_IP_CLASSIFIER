@@ -91,15 +91,6 @@ def solution():
 
 
 
-total = 0
-def func():
-    # refer to global variable 'total' inside function
-    global total
-    print(total)
-    if total < 10:
-        total = total+1
-        print(total)
-
 if __name__ == '__main__':
    pass
 
