@@ -10,7 +10,7 @@ def IP_identifier():
         for i in y:
             if  isinstance(int(i),int):
                 pass
-        if int(y[0]) > 0 and int(y[0]) <= 127:
+        if 0 < int(y[0]) <= 127:
             c = "A"
             if int(y[0]) == 127:
                 Designation = 'Special'
@@ -18,22 +18,22 @@ def IP_identifier():
                 Designation = 'private'
             else:
                 Designation = 'public'
-        elif int(y[0]) > 127 and int(y[0]) <= 191:
+        elif 127 < int(y[0]) <= 191:
             c = "B"
-            if int(y[0]) == 172 and int(y[1]) == 16 and int(y[2]) <= 31:
+            if int(y[0]) == 172 and int(y[1]) == 16 and 0 < int(y[2]) <= 31:
                 Designation = 'private'
             else:
                 Designation = 'public'
-        elif int(y[0]) > 191 and int(y[0]) <= 223:
+        elif 191 < int(y[0]) <= 223:
             c = "C"
-            if int(y[0]) == 192 and int(y[0]) == 168:
+            if int(y[0]) == 192 and int(y[1]) == 168:
                 Designation = 'private'
             else:
                 Designation = 'public'
-        elif int(y[0]) > 223 and int(y[0]) <= 239:
+        elif 223 < int(y[0]) <= 239:
             c = "D"
             Designation = 'Special'
-        elif int(y[0]) > 239 and int(y[0]) <= 255:
+        elif 239 < int(y[0]) <= 255:
             c = "E"
             Designation = 'Special'
         else:
