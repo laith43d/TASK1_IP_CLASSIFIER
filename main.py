@@ -1,4 +1,6 @@
-   ip=input("enter the ip ")
+ def solution():
+  
+    ip=input("enter the ip ")
 
     #ip="192.168.1.1"
     ip_split=ip.split('.')
