@@ -26,7 +26,7 @@ def solution(ip):
         print("Class D, Designation: special")
     
     elif  255 >= octet1 >= 240:
-        print("Class D, Designation: special")
+        print("Class E, Designation: special")
     pass
 
 if __name__ == '__main__':
