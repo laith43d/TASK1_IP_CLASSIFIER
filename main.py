@@ -1,3 +1,4 @@
+import sys
 def solution(ip):
     ip_splited = ip.split('/')
     ip_octets = ip_splited[0].split('.')
@@ -29,7 +30,6 @@ def solution(ip):
     pass
 
 if __name__ == '__main__':
-    ip = '192.168.1.1/24'
-    print('IP =' + ip +' is: ')
-    solution(ip)
+    
+    solution(sys.argv[1])
     pass 
