@@ -1,5 +1,5 @@
-def solution():
-    pass
+
+    
 def solution(ip):
     ip=ip.split('/')
     p1,p2,p3,p4=map(int, ip[0].split('.'))
